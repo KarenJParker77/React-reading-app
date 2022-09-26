@@ -1,27 +1,26 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { ADD_USER } from "./redux/types";
+import React from "react";
+import Interface from "./Components/Interface";
+import Loading from "./Components/Loading";
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { SET_SCREEN_MODE } from "./redux/types";
 
 const App = () => {
-  const [book, setBook] = useState("");
+  // use local state below to determine whether on loading screen - only needs to exist for a moment in time
+  const [loading, setLoading] = useState(true);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
+  // send message to store re which screen to load
+  const setInterface = () => {
+    const payload = user.id ? 2 : 1;
+    dispatch({ type: SET_SCREEN_MODE, payload });
+    setLoading(false);
+  };
   return (
     <>
       <button onClick={() => localStorage.clear()}>Delete local storage</button>
-      <input
-        onInput={(e) => {
-          setBook(e.target.book);
-        }}
-        type="text"
-      />
-      <button
-        onClick={() => {
-          dispatch({ type: ADD_USER, payload: { userName: "Testing" } });
-        }}
-      >
-        Add
-      </button>
+      {loading ? <Loading /> : <Interface />}
+      <button onClick={setInterface}>Continue</button>
     </>
   );
 };

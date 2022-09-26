@@ -6,4 +6,6 @@ export const initialState = {
   allBooks,
   futureBooks,
   finishedBooks,
+  currentUserId: 0,
+  screenMode: 0,
 };

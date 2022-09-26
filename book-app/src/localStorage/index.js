@@ -1,5 +1,5 @@
 // payload = actual contents we want to store
-// function below gives a name and the data and stores item using that name
+// function below gives a name and the data and stores item in disk using that name
 export function storeItem(name, payload) {
   // defensive check below - if payload isn't an object or doesn't have a name, or name undefined or null
   if (!name || typeof payload !== "object") {
