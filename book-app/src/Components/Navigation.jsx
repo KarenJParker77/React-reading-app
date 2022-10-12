@@ -8,7 +8,7 @@ const Navigation = () => {
 
   return (
     <>
-      <nav>
+      <nav className="nav">
         {screenMode !== 1 && (
           <button
             onClick={() => dispatch({ type: SET_SCREEN_MODE, payload: 1 })}

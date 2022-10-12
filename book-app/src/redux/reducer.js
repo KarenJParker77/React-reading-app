@@ -7,9 +7,15 @@ import {
   DELETE_USER,
   SET_SEARCH_TERM,
   REMOVE_BOOK,
+  REMOVE_CURRENT_BOOK,
   READ_BOOK,
   END_BOOK,
   ADD_BOOK,
+  READ_AGAIN,
+  SET_CURRENT_BOOK,
+  SET_BOOKS,
+  SET_FINISHED_BOOKS,
+  SET_FUTURE_BOOKS,
 } from "./types";
 import { generateUserId } from "../utils";
 import { allBooks } from "../fakeApi";
@@ -23,6 +29,9 @@ export function reducer(state = getItem("store") || initialState, action) {
       const user = {
         id: generateUserId(20),
         userName: action.payload,
+        finishedBooks: [],
+        futureBooks: [],
+        currentBook: [],
       };
 
       // below means - make a copy of the state, add the user and send them straight to search for books
@@ -61,16 +70,20 @@ export function reducer(state = getItem("store") || initialState, action) {
       const newState = { ...state, searchTerm: action.payload };
       return newState;
     }
-
+    // remove book from reading list
     case REMOVE_BOOK: {
-      const books = [...state.books];
-      const indexOfBook = books.findIndex((item) => item.id === action.payload);
+      const user = { ...state.user };
+      const futureBooks = user.futureBooks;
 
-      books.splice(indexOfBook, 1);
+      const index = futureBooks.indexOf(action.payload);
 
-      return { ...state, books };
+      futureBooks.splice(index, 1);
+
+      const newState = { ...state, user };
+      storeItem("store", newState);
+      return newState;
     }
-
+    // add book to reading list
     case ADD_BOOK: {
       const user = { ...state.user };
       // if no future books, create an empty array
@@ -88,28 +101,101 @@ export function reducer(state = getItem("store") || initialState, action) {
       storeItem("store", newState);
       return newState;
     }
-    // do I need to find index and splice the below from book too?
-    case END_BOOK: {
-      const finishedBooks = [state.finishedBooks];
-      finishedBooks.push({
-        userId: state.currentUserId,
-        bookId: action.payload.bookId,
-        whenFinished: Date.now(),
-      });
 
-      const newState = { ...state, finishedBooks };
+    // remove book from current
+    case REMOVE_CURRENT_BOOK: {
+      const user = { ...state.user };
+      const allBooks = state.allBooks;
+
+      const indexOfBook = allBooks.findIndex(
+        (item) => item.id === action.payload.id
+      );
+
+      user.currentBook.splice(indexOfBook, 1);
+
+      const newState = { ...state, user };
       storeItem("store", newState);
       return newState;
     }
-    // current book!!
-    case READ_BOOK: {
-      const book = [state.book];
-      book.push({
-        userId: state.currentUserId,
-        bookId: action.payload.bookId,
-      });
 
-      const newState = { ...state, book };
+    case END_BOOK: {
+      const user = { ...state.user };
+
+      const currentBook = user.currentBook;
+      const finishedBooks = user.finishedBooks;
+
+      const indexOfBook = currentBook.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      currentBook.splice(indexOfBook, 1);
+
+      finishedBooks.push(action.payload);
+
+      const newState = { ...state, user };
+      storeItem("store", newState);
+      return newState;
+    }
+    // move from reading list to current book!!
+    case READ_BOOK: {
+      const user = { ...state.user };
+      const futureBooks = user.futureBooks;
+
+      const index = futureBooks.indexOf(action.payload);
+      futureBooks.splice(index, 1);
+
+      const currentBook = user.currentBook;
+      currentBook.push(action.payload);
+
+      const newState = { ...state, user };
+      storeItem("store", newState);
+      return newState;
+    }
+    // re-add to reading list but keep in finished books list too
+    case READ_AGAIN: {
+      const user = { ...state.user };
+      // if no books in reading list, create an empty object
+      const futureBooks = user.futureBooks ? user.futureBooks : [];
+      // const finishedBooks = user.finishedBooks;
+
+      // already there? If so, return with no change
+      if (futureBooks.includes(action.payload)) {
+        return state;
+      }
+      futureBooks.push(action.payload);
+
+      user.futureBooks = futureBooks;
+
+      const newState = { ...state, user };
+      storeItem("store", newState);
+      return newState;
+    }
+
+    // API types below!!!!
+
+    case SET_BOOKS: {
+      const newState = { ...state, allBooks: action.payload };
+
+      storeItem("store", newState);
+      return newState;
+    }
+
+    case SET_CURRENT_BOOK: {
+      const newState = { ...state, book: action.payload };
+
+      storeItem("store", newState);
+      return newState;
+    }
+
+    case SET_FINISHED_BOOKS: {
+      const newState = { ...state, finishedBooks: action.payload };
+
+      storeItem("store", newState);
+      return newState;
+    }
+
+    case SET_FUTURE_BOOKS: {
+      const newState = { ...state, futureBooks: action.payload };
+
       storeItem("store", newState);
       return newState;
     }

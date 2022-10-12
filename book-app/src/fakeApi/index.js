@@ -1,10 +1,12 @@
 // define data structure
 
 export const user = {
-  // id: 1,
-  // userName: "KarenJParker",
-  // dateJoined: 12345678910,
-  // futureBooks: id,
+  id: 1,
+  userName: "KarenJParker",
+  dateJoined: 12345678910,
+  currentBook: [],
+  futureBooks: [],
+  finishedBooks: [],
 };
 
 export const book = {};
@@ -38,10 +40,42 @@ export const allBooks = [
     read: true,
     image: "",
   },
+
+  {
+    id: 5,
+    bookTitle: "The Gods of Guilt",
+    author: "Michael Connelly",
+    read: true,
+    image: "",
+  },
+
+  {
+    id: 6,
+    bookTitle: "The Ink Black Heart",
+    author: "Robert Galbraith",
+    read: true,
+    image: "",
+  },
+
+  {
+    id: 7,
+    bookTitle: "Lessons in Chemistry",
+    author: "Bonnie Garmus",
+    read: true,
+    image: "",
+  },
+
+  {
+    id: 8,
+    bookTitle: "Pride and Prejudice",
+    author: "Jane Austen",
+    read: true,
+    image: "",
+  },
 ];
 
 export const futureBooks = [{}];
 
 // bookId: [2], userId: 0, whenAdded: "date"
 
-export const finishedBooks = [{ bookId: [3], userId: 0, whenFinished: "date" }];
+export const finishedBooks = [{ bookId: [3], whenFinished: "date" }];

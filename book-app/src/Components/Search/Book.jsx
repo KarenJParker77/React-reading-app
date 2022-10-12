@@ -8,7 +8,7 @@ const Book = ({ result }) => {
       <h1>{result.bookTitle}</h1>;<h2>By {result.author}</h2>
       <img src={result.image} alt={result.image} />
       <button onClick={() => dispatch({ type: ADD_BOOK, payload: result.id })}>
-        Add book
+        Add to reading list
       </button>
     </>
   );
