@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "bootstrap": "^5.2.2",
     "gsap": "^3.11.3",
-    "joi": "^17.6.1"
+    "joi": "^17.6.1",
+    "react-bootstrap": "^2.5.0"
   }
 }

@@ -16,16 +16,15 @@ const Currentbook = () => {
 
   return (
     <>
-      <h1>Current Book</h1>
       <nav>
         <Navigation />
-
-        {results.length > 0 ? (
-          <Results results={results} />
-        ) : (
-          <p>No current book</p>
-        )}
       </nav>
+      <h1>Current Book</h1>
+      {results.length > 0 ? (
+        <Results results={results} />
+      ) : (
+        <p>No current book</p>
+      )}
     </>
   );
 };

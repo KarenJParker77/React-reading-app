@@ -14,16 +14,15 @@ const History = () => {
 
   return (
     <>
-      <h1>Reading history</h1>
       <nav>
         <Navigation />
-
-        {results.length > 0 ? (
-          <Results results={results} />
-        ) : (
-          <p>You haven't finished any books yet!</p>
-        )}
       </nav>
+      <h1>Reading history</h1>
+      {results.length > 0 ? (
+        <Results results={results} />
+      ) : (
+        <p>You haven't finished any books yet!</p>
+      )}
     </>
   );
 };

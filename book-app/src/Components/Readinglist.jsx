@@ -14,16 +14,15 @@ const Readinglist = () => {
 
   return (
     <>
-      <h1>Reading list</h1>
       <nav>
         <Navigation />
-
-        {results.length > 0 ? (
-          <Results results={results} />
-        ) : (
-          <p>Sorry, no results</p>
-        )}
       </nav>
+      <h1>Reading list</h1>
+      {results.length > 0 ? (
+        <Results results={results} />
+      ) : (
+        <p>Sorry, no results</p>
+      )}
     </>
   );
 };

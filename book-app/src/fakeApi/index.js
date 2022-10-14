@@ -1,5 +1,7 @@
 // define data structure
 
+//
+
 export const user = {
   id: 1,
   userName: "KarenJParker",
@@ -9,36 +11,35 @@ export const user = {
   finishedBooks: [],
 };
 
-export const book = {};
+// export const book = {};
 
 export const allBooks = [
   {
     id: 1,
-    bookTitle: "Harry Potter",
+    bookTitle: "Harry Potter and the Philosopher's Stone",
     author: "JK Rowling",
-    read: true,
-    image: "",
+    image: "/HarryPotter.jpg",
   },
   {
     id: 2,
     bookTitle: "Winnie the Pooh",
     author: "AA Milne",
     read: true,
-    image: "",
+    image: "/Gods-Guilt.jpg",
   },
   {
     id: 3,
     bookTitle: "The Lincoln Lawyer",
     author: "Michael Connelly",
     read: true,
-    image: "",
+    image: "/ink-black-heart.jpg",
   },
   {
     id: 4,
     bookTitle: "Verity",
     author: "Colleen Hoover",
     read: true,
-    image: "",
+    image: "/Gods-Guilt.jpg",
   },
 
   {
@@ -46,7 +47,7 @@ export const allBooks = [
     bookTitle: "The Gods of Guilt",
     author: "Michael Connelly",
     read: true,
-    image: "",
+    image: "./Gods-Guilt",
   },
 
   {
@@ -54,7 +55,7 @@ export const allBooks = [
     bookTitle: "The Ink Black Heart",
     author: "Robert Galbraith",
     read: true,
-    image: "",
+    image: "/logo192.png",
   },
 
   {
@@ -62,20 +63,19 @@ export const allBooks = [
     bookTitle: "Lessons in Chemistry",
     author: "Bonnie Garmus",
     read: true,
-    image: "",
+    image: { url: "/public/logo192.png" },
   },
 
   {
     id: 8,
     bookTitle: "Pride and Prejudice",
     author: "Jane Austen",
-    read: true,
-    image: "",
+    image: "Why isn't image showing?",
   },
 ];
 
-export const futureBooks = [{}];
+// export const futureBooks = [{}];
 
 // bookId: [2], userId: 0, whenAdded: "date"
 
-export const finishedBooks = [{ bookId: [3], whenFinished: "date" }];
+// export const finishedBooks = [{ bookId: [3], whenFinished: "date" }];

@@ -1,28 +1,77 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&family=Roboto:wght@100;300;400;500&display=swap");
 
 * {
-  margin: 0;
+  margin-left: 15px;
   font-family: Poppins;
   color: #333;
-}
-
-.nav {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+  box-sizing: border-box;
+  background-color: #e7e8e2;
 }
 
 button {
   color: #333;
+  /* margin: 8px; */
 }
 
 button:hover {
   color: #f1356d;
 }
 
+.component-btn {
+  border-radius: 10px;
+}
+
+.nav {
+  /* margin: 15px; */
+  font-size: larger;
+  padding-top: 30px;
+}
+
+.nav button {
+  margin: 0;
+  border-style: none;
+  font-size: 2rem;
+
+  padding-right: 20px;
+}
+
 h1 {
-  color: #f1356d;
+  color: #940242;
+
+  /* padding: 20px; */
+  /* margin: 20px; */
+}
+
+h2 {
+  /* padding: 20px; */
+  /* margin: 20px; */
+  color: #f15483;
+}
+
+h3 {
+  /* padding: 20px;
+  margin: 10px; */
+  color: #958f89;
+}
+
+p {
+  /* padding: 20px; */
+  /* margin-left: 8px; */
+}
+
+input {
+  /* padding: 8px;
+  margin: 20px; */
+}
+
+img {
+  /* margin: 5px; */
+  width: 200px;
+  height: 400px;
+}
+
+.book {
+  border: 2px solid;
+
+  box-shadow: 6px 4px 8px -2px;
 }

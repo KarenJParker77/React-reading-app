@@ -29,16 +29,16 @@ const Search = () => {
 
   return (
     <>
-      <h1>Search</h1>
       <nav>
         <Navigation />
-        <SearchInput setSearchTerm={setSearchTerm} />
-        {results.length > 0 ? (
-          <Results results={results} />
-        ) : (
-          <p>Sorry, no results</p>
-        )}
       </nav>
+      <h1>Search</h1>
+      <SearchInput setSearchTerm={setSearchTerm} />
+      {results.length > 0 ? (
+        <Results results={results} />
+      ) : (
+        <p>Sorry, no results</p>
+      )}
     </>
   );
 };

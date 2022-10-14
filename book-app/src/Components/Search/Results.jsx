@@ -3,7 +3,7 @@ import Book from "./Book";
 
 const Results = ({ results }) => {
   return results.map((result) => {
-    return <Book key={result.id} result={result} />;
+    return <Book className="book" key={result.id} result={result} />;
   });
 };
 
