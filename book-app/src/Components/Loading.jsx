@@ -6,8 +6,8 @@ const Loading = () => {
   useEffect(() => {
     gsap.fromTo(
       ".loadingText",
-      { x: -50 },
-      { x: 30, duration: 5, color: "green", ease: "back.out(1.7)" }
+      { x: -50, opacity: 0 },
+      { x: 30, duration: 5, opacity: 1, ease: "back.out(1.7)" }
     );
   }, []);
 

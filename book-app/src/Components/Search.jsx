@@ -20,7 +20,8 @@ const Search = () => {
   // if already in reading list - return it
 
   const results = allBooks.filter((possibleBook) => {
-    if (user.futureBooks && user.futureBooks.includes(possibleBook.id)) return;
+    if (user.futureBooks && user.futureBooks.includes(possibleBook.id))
+      return true;
     // or if not...
     return possibleBook.bookTitle
       .toLowerCase()

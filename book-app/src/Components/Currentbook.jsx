@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 const Currentbook = () => {
   const user = useSelector((state) => state.user);
   const allBooks = useSelector((state) => state.allBooks);
-  console.log(user.currentBook);
 
   const results = allBooks.filter((book) => {
     if (user.currentBook.includes(book.id)) return true;
