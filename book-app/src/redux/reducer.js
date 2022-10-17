@@ -19,7 +19,6 @@ import {
 } from "./types";
 import { generateUserId } from "../utils";
 
-
 export function reducer(state = getItem("store") || initialState, action) {
   switch (action.type) {
     case ADD_USER: {
@@ -86,6 +85,7 @@ export function reducer(state = getItem("store") || initialState, action) {
     // add book to reading list
     case ADD_BOOK: {
       const user = { ...state.user };
+      // const allBooks = { ...state.allBooks };
       // if no future books, create an empty array
       const futureBooks = user.futureBooks ? user.futureBooks : [];
 
@@ -93,6 +93,10 @@ export function reducer(state = getItem("store") || initialState, action) {
       if (futureBooks.includes(action.payload)) {
         return state;
       }
+      // const index = allBooks.indexOf(action.payload);
+
+      // allBooks.splice(index, 1);
+
       futureBooks.push(action.payload);
 
       user.futureBooks = futureBooks;
