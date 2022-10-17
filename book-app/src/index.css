@@ -24,7 +24,10 @@ button:hover {
 .nav {
   /* margin: 15px; */
   font-size: larger;
+  /* height: 400px; */
   padding-top: 30px;
+  /* background: url (".matias-north-v8DSLoY80Xk-unsplash.jpg");
+  background-size: cover; */
 }
 
 .nav button {
@@ -80,8 +83,15 @@ img {
 
 .loadingText {
   font-weight: bold;
-
+  text-align: center;
   color: #940242;
+}
+
+.loadingContainer {
+  height: 600px;
+  width: auto;
+  background: url("../public/matias-north-v8DSLoY80Xk-unsplash.jpg");
+  background-size: cover;
 }
 
 .nav .onPageButton {

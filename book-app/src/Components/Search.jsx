@@ -11,8 +11,7 @@ const Search = () => {
   const user = useSelector((state) => state.user);
 
   const results = allBooks.filter((possibleBook) => {
-    if (user.futureBooks && user.futureBooks.includes(possibleBook.id))
-      return true;
+    if (user.futureBooks && user.futureBooks.includes(possibleBook.id)) return;
     // or if not...
     return possibleBook.bookTitle
       .toLowerCase()

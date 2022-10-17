@@ -13,7 +13,9 @@ const Loading = () => {
 
   return (
     <>
-      <h1 className="loadingText">Loading...</h1>
+      <div className="loadingContainer">
+        <h1 className="loadingText">Loading...</h1>
+      </div>
     </>
   );
 };
