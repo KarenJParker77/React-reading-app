@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ADD_USER } from "../redux/types";
 import { useDispatch } from "react-redux";
 import { validate } from "../validation";
+import Navigation from "./Navigation";
 
 const Signup = () => {
   //  local state below
@@ -33,7 +34,8 @@ const Signup = () => {
 
   return (
     <>
-      <h1>Sign up</h1>
+      <Navigation />
+      {/* <h1>Sign up</h1> */}
       <input onInput={onInput} type="text" />
       {/* if there are errors, then display username errors to screen */}
       <p>{errors && errors.userName}</p>

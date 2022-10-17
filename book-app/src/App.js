@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <>
-      <button onClick={() => localStorage.clear()}>Delete local storage</button>
+      <button onClick={() => localStorage.clear()}>Delete my data</button>
       {loading ? <Loading /> : <Interface />}
       {/* <button onClick={setInterface}>Continue</button> */}
     </>

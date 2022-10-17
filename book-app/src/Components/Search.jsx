@@ -10,15 +10,6 @@ const Search = () => {
   const allBooks = useSelector((state) => state.allBooks);
   const user = useSelector((state) => state.user);
 
-  //NEED TO REMOVE ALREADY READ AND CURRENT BOOK FROM SEARCH!!!
-  // const alreadyRead = allBooks.filter((book) => {
-  //   return user.finishedBooks.includes(book);
-  // });
-  // console.log(alreadyRead);
-
-  // results = the books we show on screen
-  // if already in reading list - return it
-
   const results = allBooks.filter((possibleBook) => {
     if (user.futureBooks && user.futureBooks.includes(possibleBook.id))
       return true;
@@ -33,7 +24,7 @@ const Search = () => {
       <nav>
         <Navigation />
       </nav>
-      <h1>Search</h1>
+      {/* <h1>Search</h1> */}
       <SearchInput setSearchTerm={setSearchTerm} />
       {results.length > 0 ? (
         <Results results={results} />

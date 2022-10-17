@@ -46,12 +46,14 @@ h2 {
   /* padding: 20px; */
   /* margin: 20px; */
   color: #f15483;
+  font-size: larger;
 }
 
 h3 {
   /* padding: 20px;
   margin: 10px; */
   color: #958f89;
+  font-size: larger;
 }
 
 p {
@@ -60,8 +62,8 @@ p {
 }
 
 input {
-  /* padding: 8px;
-  margin: 20px; */
+  padding: 8px;
+  margin: 20px;
 }
 
 img {
@@ -79,4 +81,10 @@ img {
   font-weight: bold;
 
   color: #940242;
+}
+
+.nav .onPageButton {
+  /* background-color: darkgrey; */
+  color: #940242;
+  font-weight: 900;
 }

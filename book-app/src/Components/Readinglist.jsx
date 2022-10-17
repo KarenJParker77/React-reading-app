@@ -17,7 +17,7 @@ const Readinglist = () => {
       <nav>
         <Navigation />
       </nav>
-      <h1>Reading list</h1>
+      {/* <h1>Reading list</h1> */}
       {results.length > 0 ? (
         <Results results={results} />
       ) : (

@@ -18,7 +18,7 @@ const Currentbook = () => {
       <nav>
         <Navigation />
       </nav>
-      <h1>Current Book</h1>
+      {/* <h1>Current Book</h1> */}
       {results.length > 0 ? (
         <Results results={results} />
       ) : (
