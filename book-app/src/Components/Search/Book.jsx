@@ -7,7 +7,7 @@ const Book = ({ result }) => {
   const dispatch = useDispatch();
 
   const onEnter = ({ currentTarget }) => {
-    gsap.to(currentTarget, { scale: 1.2 });
+    gsap.to(currentTarget, { scale: 1.1 });
   };
   const onLeave = ({ currentTarget }) => {
     gsap.to(currentTarget, { scale: 1 });
@@ -15,22 +15,25 @@ const Book = ({ result }) => {
 
   return (
     <>
-      <h2>{result.bookTitle}</h2>
-      <h3>By {result.author}</h3>
-      <img
-        onMouseEnter={onEnter}
-        onMouseLeave={onLeave}
-        src={result.image}
-        alt={`${result.bookTitle} cover`}
-      />
-      <div>
-        {/* ref={app} className="App" */}
-        <button
-          className="component-btn box"
-          onClick={() => dispatch({ type: ADD_BOOK, payload: result.id })}
-        >
-          Add to reading list
-        </button>
+      <div className="book-container">
+        <h2>{result.bookTitle}</h2>
+        <h3>By {result.author}</h3>
+        <img
+          className="book"
+          onMouseEnter={onEnter}
+          onMouseLeave={onLeave}
+          src={result.image}
+          alt={`${result.bookTitle} cover`}
+        />
+        <div>
+          {/* ref={app} className="App" */}
+          <button
+            className="component-btn box"
+            onClick={() => dispatch({ type: ADD_BOOK, payload: result.id })}
+          >
+            Add to reading list
+          </button>
+        </div>
       </div>
     </>
   );

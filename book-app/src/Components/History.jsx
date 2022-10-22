@@ -14,15 +14,19 @@ const History = () => {
 
   return (
     <>
+    <div className="main-body">
       <nav>
         <Navigation />
       </nav>
       {/* <h1>Reading history</h1> */}
-      {results.length > 0 ? (
-        <Results results={results} />
-      ) : (
-        <p>You haven't finished any books yet!</p>
-      )}
+      <div className="display-grid">
+        {results.length > 0 ? (
+          <Results results={results} />
+        ) : (
+          <p>You haven't finished any books yet!</p>
+        )}
+      </div>
+      </div>
     </>
   );
 };

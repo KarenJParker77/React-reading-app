@@ -34,12 +34,15 @@ const Signup = () => {
 
   return (
     <>
-      <Navigation />
-      {/* <h1>Sign up</h1> */}
-      <input onInput={onInput} type="text" />
-      {/* if there are errors, then display username errors to screen */}
-      <p>{errors && errors.userName}</p>
-      <button onClick={onSubmit}>Signup</button>
+      <div className="main-body">
+        <Navigation />
+        {/* <h1>Sign up</h1> */}
+
+        <input className="input-box" onInput={onInput} type="text" />
+        {/* if there are errors, then display username errors to screen */}
+        <p>{errors && errors.userName}</p>
+        <button onClick={onSubmit}>Signup</button>
+      </div>
     </>
   );
 };

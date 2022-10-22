@@ -20,16 +20,20 @@ const Search = () => {
 
   return (
     <>
-      <nav>
-        <Navigation />
-      </nav>
-      {/* <h1>Search</h1> */}
-      <SearchInput setSearchTerm={setSearchTerm} />
-      {results.length > 0 ? (
-        <Results results={results} />
-      ) : (
-        <p>Sorry, no results</p>
-      )}
+      <div className="main-body">
+        <nav>
+          <Navigation />
+        </nav>
+        {/* <h1>Search</h1> */}
+        <SearchInput setSearchTerm={setSearchTerm} />
+        <div className="display-grid">
+          {results.length > 0 ? (
+            <Results results={results} />
+          ) : (
+            <p>Sorry, no results</p>
+          )}{" "}
+        </div>
+      </div>
     </>
   );
 };

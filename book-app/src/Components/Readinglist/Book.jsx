@@ -17,9 +17,10 @@ const Book = ({ result }) => {
 
   return (
     <>
-      <div className>
+      <div>
         <h2>{result.bookTitle}</h2>
         <h3>By {result.author}</h3>
+
         <div>
           <img
             onMouseEnter={onEnter}

@@ -15,15 +15,20 @@ const Currentbook = () => {
 
   return (
     <>
-      <nav>
-        <Navigation />
-      </nav>
-      {/* <h1>Current Book</h1> */}
-      {results.length > 0 ? (
-        <Results results={results} />
-      ) : (
-        <p>No current book</p>
-      )}
+      <div className="main-body">
+        <nav>
+          <Navigation />
+        </nav>
+        {/* <h1>Current Book</h1> */}
+        <div className="display-grid">
+          {results.length > 0 ? (
+            <Results results={results} />
+          ) : (
+            <p>No current book</p>
+          )}
+        </div>
+      </div>
+      <button onClick={() => localStorage.clear()}>Delete my data</button>
     </>
   );
 };

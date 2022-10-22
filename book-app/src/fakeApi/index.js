@@ -68,7 +68,7 @@ export const allBooks = [
     id: 8,
     bookTitle: "Pride and Prejudice",
     author: "Jane Austen",
-    image: "/pride.jpg",
+    image: "/pride1.webp",
   },
 ];
 

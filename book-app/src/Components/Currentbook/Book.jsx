@@ -13,32 +13,36 @@ const Book = ({ result }) => {
   };
   return (
     <>
-      <h2>{result.bookTitle}</h2>
-      <h3>By {result.author}</h3>
-      <img
-        onMouseEnter={onEnter}
-        onMouseLeave={onLeave}
-        className="book"
-        src={result.image}
-        alt={`${result.bookTitle} cover`}
-      />
-      <div>
-        {/* ref={buttonRotate} className="button" */}
+      <div className="book-container">
+        <h2>{result.bookTitle}</h2>
+
+        <h3>By {result.author}</h3>
+
+        <img
+          onMouseEnter={onEnter}
+          onMouseLeave={onLeave}
+          className="book"
+          src={result.image}
+          alt={`${result.bookTitle} cover`}
+        />
+        <div>
+          {/* ref={buttonRotate} className="button" */}
+          <button
+            className="component-btn box"
+            onClick={() => dispatch({ type: END_BOOK, payload: result.id })}
+          >
+            I've finished this book!
+          </button>
+        </div>
         <button
-          className="component-btn box"
-          onClick={() => dispatch({ type: END_BOOK, payload: result.id })}
+          className="component-btn"
+          onClick={() =>
+            dispatch({ type: REMOVE_CURRENT_BOOK, payload: result.id })
+          }
         >
-          I've finished this book!
+          Delete book
         </button>
       </div>
-      <button
-        className="component-btn"
-        onClick={() =>
-          dispatch({ type: REMOVE_CURRENT_BOOK, payload: result.id })
-        }
-      >
-        Delete book
-      </button>
     </>
   );
 };

@@ -4,6 +4,7 @@ import Loading from "./Components/Loading";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_SCREEN_MODE } from "./redux/types";
+import "bootstrap/dist/css/bootstrap.min.css";
 // import { DataController } from "./Controllers";
 
 const App = () => {
@@ -27,13 +28,7 @@ const App = () => {
     //   _dataController.init();
   }, []);
 
-  return (
-    <>
-      <button onClick={() => localStorage.clear()}>Delete my data</button>
-      {loading ? <Loading /> : <Interface />}
-      {/* <button onClick={setInterface}>Continue</button> */}
-    </>
-  );
+  return <>{loading ? <Loading /> : <Interface />}</>;
 };
 
 export default App;
