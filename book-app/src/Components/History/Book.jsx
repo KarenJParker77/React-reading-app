@@ -14,22 +14,25 @@ const Book = ({ result }) => {
   return (
     <>
       <div className="book-container">
-        <h2>{result.bookTitle}</h2>
-        <h3>By {result.author}</h3>
-        <img
-          onMouseEnter={onEnter}
-          onMouseLeave={onLeave}
-          src={result.image}
-          alt={`${result.bookTitle} cover`}
-        />
-        <div>
-          {/* ref={app} className="App"> */}
-          <button
-            className="component-btn box"
-            onClick={() => dispatch({ type: READ_AGAIN, payload: result.id })}
-          >
-            Put this book back in your reading list
-          </button>
+        <div className="book-header">
+          <h2>{result.bookTitle}</h2>
+          <h3>By {result.author}</h3>
+        </div>
+        <div className="book-contents">
+          <img
+            onMouseEnter={onEnter}
+            onMouseLeave={onLeave}
+            src={result.image}
+            alt={`${result.bookTitle} cover`}
+          />
+          <div>
+            <button
+              className="component-btn box"
+              onClick={() => dispatch({ type: READ_AGAIN, payload: result.id })}
+            >
+              Put this book back in your reading list
+            </button>
+          </div>
         </div>
       </div>
     </>

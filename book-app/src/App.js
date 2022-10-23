@@ -22,7 +22,7 @@ const App = () => {
   useEffect(() => {
     setTimeout(() => {
       setInterface();
-    }, 3000);
+    }, 6000);
     // getting data from API and storing in the store. Instance of class - use underscore
     //   const _dataController = new DataController();
     //   _dataController.init();

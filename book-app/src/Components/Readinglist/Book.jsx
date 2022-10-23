@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { REMOVE_BOOK, READ_BOOK } from "../../redux/types";
 import { gsap } from "gsap";
@@ -17,26 +17,26 @@ const Book = ({ result }) => {
 
   return (
     <>
-      <div>
-        <h2>{result.bookTitle}</h2>
-        <h3>By {result.author}</h3>
-
-        <div>
+      <div className="book-container">
+        <div className="book-header">
+          <h2>{result.bookTitle}</h2>
+          <h3>By {result.author}</h3>
+        </div>
+        <div className="book-contents">
           <img
             onMouseEnter={onEnter}
             onMouseLeave={onLeave}
             src={result.image}
-            alt={result.image}
+            alt={`${result.bookTitle} cover`}
           />
-        </div>
-        <button
-          className="component-btn"
-          onClick={() => dispatch({ type: REMOVE_BOOK, payload: result.id })}
-        >
-          Remove book from reading list
-        </button>
-        <div>
-          {/* // ref={buttonRotate} className="button" */}
+
+          <button
+            className="component-btn"
+            onClick={() => dispatch({ type: REMOVE_BOOK, payload: result.id })}
+          >
+            Remove book from reading list
+          </button>
+
           <button
             className="component-btn box"
             onClick={() => dispatch({ type: READ_BOOK, payload: result.id })}
