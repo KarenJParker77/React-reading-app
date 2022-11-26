@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { ADD_BOOK } from "../../redux/types";
+import { ADD_FUTURE_BOOK } from "../../redux/types";
 import { gsap } from "gsap";
 import axios from "axios";
 
@@ -15,11 +15,11 @@ const Book = ({ result }) => {
   };
 
   const addToFutureList = async () => {
-    await axios.post("http://localhost:6001/books/current", {
+    await axios.post("http://localhost:6001/books/future", {
       book_id: result.id,
       user_id: 9,
     });
-    dispatch({ type: ADD_BOOK, payload: result.id });
+    dispatch({ type: ADD_FUTURE_BOOK, payload: result.id });
   };
 
   return (

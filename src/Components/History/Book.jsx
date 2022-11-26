@@ -1,7 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { READ_AGAIN } from "../../redux/types";
+import { ADD_FUTURE_BOOK_AGAIN } from "../../redux/types";
 import { gsap } from "gsap";
+import axios from "axios";
 
 const Book = ({ result }) => {
   const dispatch = useDispatch();
@@ -11,6 +12,15 @@ const Book = ({ result }) => {
   const onLeave = ({ currentTarget }) => {
     gsap.to(currentTarget, { scale: 1 });
   };
+
+  const addBackToReadingList = async () => {
+    await axios.post("http://localhost:6001/books/future", {
+      book_id: result.id,
+      user_id: 9,
+    });
+    dispatch({ type: ADD_FUTURE_BOOK_AGAIN, payload: result.id });
+  };
+
   return (
     <>
       <div className="book-container">
@@ -28,7 +38,7 @@ const Book = ({ result }) => {
           <div>
             <button
               className="component-btn box"
-              onClick={() => dispatch({ type: READ_AGAIN, payload: result.id })}
+              onClick={addBackToReadingList}
             >
               Put this book back in your reading list
             </button>

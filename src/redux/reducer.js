@@ -6,12 +6,12 @@ import {
   UPDATE_USER,
   DELETE_USER,
   SET_SEARCH_TERM,
-  REMOVE_BOOK,
+  REMOVE_FUTURE_BOOK,
   REMOVE_CURRENT_BOOK,
-  READ_BOOK,
-  END_BOOK,
-  ADD_BOOK,
-  READ_AGAIN,
+  ADD_CURRENT_BOOK,
+  ADD_FINISHED_BOOK,
+  ADD_FUTURE_BOOK,
+  ADD_FUTURE_BOOK_AGAIN,
   SET_CURRENT_BOOK,
   SET_BOOKS,
   SET_FINISHED_BOOKS,
@@ -69,8 +69,10 @@ export function reducer(state = getItem("store") || initialState, action) {
       const newState = { ...state, searchTerm: action.payload };
       return newState;
     }
+
+    //Reading list (future books)
     // remove book from reading list
-    case REMOVE_BOOK: {
+    case REMOVE_FUTURE_BOOK: {
       const user = { ...state.user };
       const futureBooks = user.futureBooks;
 
@@ -83,7 +85,7 @@ export function reducer(state = getItem("store") || initialState, action) {
       return newState;
     }
     // add book to reading list
-    case ADD_BOOK: {
+    case ADD_FUTURE_BOOK: {
       const user = { ...state.user };
       // const allBooks = { ...state.allBooks };
       // if no future books, create an empty array
@@ -122,7 +124,7 @@ export function reducer(state = getItem("store") || initialState, action) {
       return newState;
     }
 
-    case END_BOOK: {
+    case ADD_FINISHED_BOOK: {
       const user = { ...state.user };
 
       const currentBook = user.currentBook;
@@ -140,7 +142,7 @@ export function reducer(state = getItem("store") || initialState, action) {
       return newState;
     }
     // move from reading list to current book!!
-    case READ_BOOK: {
+    case ADD_CURRENT_BOOK: {
       const user = { ...state.user };
       const futureBooks = user.futureBooks;
 
@@ -155,7 +157,7 @@ export function reducer(state = getItem("store") || initialState, action) {
       return newState;
     }
     // re-add to reading list but keep in finished books list too
-    case READ_AGAIN: {
+    case ADD_FUTURE_BOOK_AGAIN: {
       const user = { ...state.user };
       // if no books in reading list, create an empty object
       const futureBooks = user.futureBooks ? user.futureBooks : [];
