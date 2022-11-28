@@ -1,7 +1,8 @@
 import Joi from "joi";
 
 export const signup = {
-  userName: Joi.string().required().min(10),
+  userEmail: Joi.string().email({ tlds: { allow: false } }),
+  userPassword: Joi.string().required().min(10),
 };
 
 export const searchInput = {

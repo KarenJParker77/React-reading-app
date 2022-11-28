@@ -18,6 +18,7 @@ const Interface = () => {
       {screenMode === 3 && <Search />}
       {screenMode === 4 && <Readinglist />}
       {screenMode === 5 && <History />}
+      {screenMode === 6 && <p>login screen</p>}
     </>
   );
 };
