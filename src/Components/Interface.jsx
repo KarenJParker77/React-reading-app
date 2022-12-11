@@ -7,6 +7,7 @@ import Readinglist from "./Readinglist";
 import History from "./History";
 import Loading from "./Loading";
 import Signup from "./Signup";
+import Login from "./Login";
 
 const Interface = () => {
   const screenMode = useSelector((state) => state.screenMode);
@@ -18,7 +19,7 @@ const Interface = () => {
       {screenMode === 3 && <Search />}
       {screenMode === 4 && <Readinglist />}
       {screenMode === 5 && <History />}
-      {screenMode === 6 && <p>login screen</p>}
+      {screenMode === 6 && <Login />}
     </>
   );
 };

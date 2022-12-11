@@ -10,6 +10,7 @@ const Navigation = () => {
     <>
       <nav className="nav">
         <div className="nav-container">
+          {/* sign up */}
           {screenMode === 1 ? (
             <button
               className="onPageButton"
@@ -22,6 +23,21 @@ const Navigation = () => {
               onClick={() => dispatch({ type: SET_SCREEN_MODE, payload: 1 })}
             >
               Sign up
+            </button>
+          )}
+          {/* login */}
+          {screenMode === 6 ? (
+            <button
+              className="onPageButton"
+              // onClick={() => dispatch({ type: SET_SCREEN_MODE, payload: 5 })}
+            >
+              Log in
+            </button>
+          ) : (
+            <button
+              onClick={() => dispatch({ type: SET_SCREEN_MODE, payload: 6 })}
+            >
+              Log in
             </button>
           )}
 
